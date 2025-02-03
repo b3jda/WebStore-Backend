@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "ehk4hefrjqIbzfJ3hPZvhxYEBXz6oArrgtxAyuLczc1yNmMIqM12nMSwmrm5kBfaj+8O3WVQQqnrXmIbY3ptXQ==",
+  "dgSpecHash": "7lVinILvsbiSTYGiumubKyaW44LDTmHjtRDtNNyo6Vp9APlcbajNrY9oDMkf8z958DU0l8deYQFuA4cZVIt9MA==",
   "success": true,
   "projectFilePath": "C:\\Users\\Admin\\Desktop\\backend\\WebApplication\\WebStore\\WebStore.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Admin\\.nuget\\packages\\aspnetcoreratelimit\\5.0.0\\aspnetcoreratelimit.5.0.0.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\automapper\\13.0.1\\automapper.13.0.1.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\chillicream.nitro.app\\20.0.2\\chillicream.nitro.app.20.0.2.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\greendonut\\14.3.0\\greendonut.14.3.0.nupkg.sha512",
@@ -100,6 +101,7 @@
     "C:\\Users\\Admin\\.nuget\\packages\\microsoft.net.http.headers\\2.1.1\\microsoft.net.http.headers.2.1.1.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\microsoft.openapi\\1.6.22\\microsoft.openapi.1.6.22.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\mono.texttemplating\\2.2.1\\mono.texttemplating.2.2.1.nupkg.sha512",
+    "C:\\Users\\Admin\\.nuget\\packages\\newtonsoft.json\\13.0.2\\newtonsoft.json.13.0.2.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\npgsql\\7.0.1\\npgsql.7.0.1.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\npgsql.entityframeworkcore.postgresql\\7.0.1\\npgsql.entityframeworkcore.postgresql.7.0.1.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\swashbuckle.aspnetcore\\7.2.0\\swashbuckle.aspnetcore.7.2.0.nupkg.sha512",

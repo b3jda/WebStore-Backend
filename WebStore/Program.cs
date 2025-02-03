@@ -12,12 +12,12 @@ using WebStore.Repositories.Interfaces;
 using WebStore.Services.AuthenticationService;
 using WebStore.Services.Implementations;
 using WebStore.Services.Interfaces;
-using Microsoft.AspNetCore.Mvc.Versioning;
 using Microsoft.AspNetCore.Mvc.ApiExplorer;
 using HotChocolate.AspNetCore;
 using HotChocolate.AspNetCore.Playground;
 using Microsoft.AspNetCore.Mvc.Infrastructure;
 using WebStore.GraphQL.Types;
+using AspNetCoreRateLimit;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -85,6 +85,22 @@ builder.Services.AddSwaggerGen(options =>
     }
 
 });
+
+builder.Services.AddMemoryCache();
+builder.Services.Configure<IpRateLimitOptions>(options =>
+{
+    options.GeneralRules = new List<RateLimitRule>
+    {
+        new RateLimitRule
+        {
+            Endpoint = "*",
+            Limit = 100,  // Allow 100 requests
+            Period = "1m" // Per minute
+        }
+    };
+});
+builder.Services.AddInMemoryRateLimiting();
+builder.Services.AddSingleton<IRateLimitConfiguration, RateLimitConfiguration>();
 
 builder.Services.AddAutoMapper(typeof(Program));
 
@@ -181,9 +197,9 @@ builder.Services.AddApiVersioning(options =>
 
 var app = builder.Build();
 
-app.UseCors("AllowFrontend"); 
+app.UseCors("AllowFrontend");
 
-
+app.UseIpRateLimiting();
 app.UseRouting();
 app.UseAuthentication();  
 app.UseAuthorization();

@@ -242,7 +242,7 @@
             Handles order-related operations.
             </summary>
         </member>
-        <member name="M:WebStore.Controllers.OrderController.#ctor(WebStore.Services.Interfaces.IOrderService,Microsoft.AspNetCore.Mvc.Routing.IUrlHelperFactory,Microsoft.AspNetCore.Mvc.Infrastructure.IActionContextAccessor)">
+        <member name="M:WebStore.Controllers.OrderController.#ctor(WebStore.Services.Interfaces.IOrderService,Microsoft.AspNetCore.Mvc.Routing.IUrlHelperFactory,Microsoft.AspNetCore.Mvc.Infrastructure.IActionContextAccessor,Microsoft.Extensions.Caching.Memory.IMemoryCache)">
             <summary>
             Initializes a new instance of the <see cref="T:WebStore.Controllers.OrderController"/> class.
             </summary>
