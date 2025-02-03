@@ -3,8 +3,10 @@
     "",
     "\\WebStore",
     "\\WebStore\\Repositories",
-    "\\WebStore\\Repositories\\Implementations"
+    "\\WebStore\\Repositories\\Implementations",
+    "\\WebStore\\Services",
+    "\\WebStore\\Services\\Interfaces"
   ],
-  "SelectedNode": "\\WebStore\\Repositories\\Implementations\\ReportRepository.cs",
+  "SelectedNode": "\\WebStore\\Services\\Interfaces\\IColorService.cs",
   "PreviewInSolutionExplorer": false
 }
