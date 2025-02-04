@@ -40,8 +40,7 @@ builder.Services.AddApiVersioning(options =>
 });
 
 
-string solrUrl = "http://localhost:8983/solr/webstore_products";
-builder.Services.AddSolrNet<Product>(solrUrl);
+builder.Services.AddSolrNet<Product>("http://localhost:8983/solr/webstore_products");
 builder.Services.AddScoped<SolrProductService>();
 
 builder.Services.AddEndpointsApiExplorer();
@@ -100,7 +99,7 @@ builder.Services.Configure<IpRateLimitOptions>(options =>
         new RateLimitRule
         {
             Endpoint = "*",
-            Limit = 100,  // Allow 100 requests
+            Limit = 200,  // Allow 100 requests
             Period = "1m" // Per minute
         }
     };
@@ -166,10 +165,14 @@ builder.Services.AddAuthentication(options =>
 
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy("AllowAllOrigins",
-        builder => builder.AllowAnyOrigin()
-                          .AllowAnyMethod()
-                          .AllowAnyHeader());
+    options.AddPolicy("AllowFrontend",
+        policy =>
+        {
+            policy.WithOrigins("http://localhost:5173") // Allow frontend URL
+                  .AllowAnyHeader()
+                  .AllowAnyMethod()
+                  .AllowCredentials();
+        });
 });
 
 AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", false);
@@ -199,7 +202,7 @@ builder.Services.AddApiVersioning(options =>
 
 var app = builder.Build();
 
-app.UseCors("AllowAllOrigins");
+app.UseCors("AllowFrontend");
 
 app.UseIpRateLimiting();
 app.UseRouting();

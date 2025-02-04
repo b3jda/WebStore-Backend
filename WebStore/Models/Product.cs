@@ -50,7 +50,7 @@ namespace WebStore.Models
         [SolrField("discount_id")]
         public int? DiscountId { get; set; }
 
-        //  Foreign Key Attributes (Explicitly Specify the Property Name)
+        // Foreign Key Attributes
         [ForeignKey(nameof(CategoryId))]
         public Category Category { get; set; }
 
@@ -68,5 +68,26 @@ namespace WebStore.Models
 
         [ForeignKey(nameof(DiscountId))]
         public Discount? Discount { get; set; }
+
+        // Add Computed Fields for Solr Indexing
+        [NotMapped]
+        [SolrField("category_name")]
+        public string CategoryName => Category?.Name;
+
+        [NotMapped]
+        [SolrField("brand_name")]
+        public string BrandName => Brand?.Name;
+
+        [NotMapped]
+        [SolrField("gender_name")]
+        public string GenderName => Gender?.Name;
+
+        [NotMapped]
+        [SolrField("color_name")]
+        public string ColorName => Color?.Name;
+
+        [NotMapped]
+        [SolrField("size_name")]
+        public string SizeName => Size?.Name;
     }
 }
