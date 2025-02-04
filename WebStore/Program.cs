@@ -18,6 +18,7 @@ using HotChocolate.AspNetCore.Playground;
 using Microsoft.AspNetCore.Mvc.Infrastructure;
 using WebStore.GraphQL.Types;
 using AspNetCoreRateLimit;
+using SolrNet;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -37,6 +38,11 @@ builder.Services.AddApiVersioning(options =>
     options.GroupNameFormat = "'v'VVV"; // v1, v2
     options.SubstituteApiVersionInUrl = true;
 });
+
+
+string solrUrl = "http://localhost:8983/solr/webstore_products";
+builder.Services.AddSolrNet<Product>(solrUrl);
+builder.Services.AddScoped<SolrProductService>();
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(options =>
@@ -160,14 +166,10 @@ builder.Services.AddAuthentication(options =>
 
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy("AllowFrontend",
-        policy =>
-        {
-            policy.WithOrigins("http://localhost:5173") // Allow frontend URL
-                  .AllowAnyHeader()
-                  .AllowAnyMethod()
-                  .AllowCredentials();
-        });
+    options.AddPolicy("AllowAllOrigins",
+        builder => builder.AllowAnyOrigin()
+                          .AllowAnyMethod()
+                          .AllowAnyHeader());
 });
 
 AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", false);
@@ -197,7 +199,7 @@ builder.Services.AddApiVersioning(options =>
 
 var app = builder.Build();
 
-app.UseCors("AllowFrontend");
+app.UseCors("AllowAllOrigins");
 
 app.UseIpRateLimiting();
 app.UseRouting();
@@ -221,7 +223,7 @@ if (app.Environment.IsDevelopment())
         Path = "/playground",
         QueryPath = "/graphql"
     });
-
+   
     app.UseSwagger();
     app.UseSwaggerUI(options =>
     {
