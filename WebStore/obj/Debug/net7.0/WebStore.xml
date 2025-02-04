@@ -555,6 +555,21 @@
             <response code="404">Size not found.</response>
             <response code="500">Internal server error.</response>
         </member>
+        <member name="M:WebStore.Controllers.SolrProductController.SearchProducts(System.String,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Double},System.Nullable{System.Double},System.String,System.Boolean)">
+            <summary>
+            Searches for products in Solr.
+            </summary>
+        </member>
+        <member name="M:WebStore.Controllers.SolrProductController.DeleteProduct(System.Int32)">
+            <summary>
+            Deletes a product from Solr.
+            </summary>
+        </member>
+        <member name="M:WebStore.Controllers.SolrProductController.IndexProduct(WebStore.Models.Product)">
+            <summary>
+            Adds or updates a product in Solr.
+            </summary>
+        </member>
         <member name="T:WebStore.Controllers.UserController">
             <summary>
             Manages user-related operations in the WebStore API.
@@ -765,6 +780,21 @@
         </member>
         <member name="M:WebStore.Migrations.AddOriginalPriceToProduct.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
             <inheritdoc />
+        </member>
+        <member name="M:WebStore.Services.Implementations.SolrProductService.AddOrUpdateProduct(WebStore.Models.Product)">
+            <summary>
+            Adds or updates a product in Solr.
+            </summary>
+        </member>
+        <member name="M:WebStore.Services.Implementations.SolrProductService.DeleteProduct(System.Int32)">
+            <summary>
+            Deletes a product from Solr.
+            </summary>
+        </member>
+        <member name="M:WebStore.Services.Implementations.SolrProductService.SearchProducts(System.String,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Double},System.Nullable{System.Double},System.String,System.Boolean)">
+            <summary>
+            Searches for products in Solr using filters.
+            </summary>
         </member>
         <member name="M:WebStore.Services.Utilities.LinkHelper.GenerateOrderLinks(System.Int32)">
             <summary>

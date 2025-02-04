@@ -222,3 +222,5 @@ C:\Users\Admin\Desktop\backend\WebApplication\WebStore\bin\Debug\net7.0\k6\packa
 C:\Users\Admin\Desktop\backend\WebApplication\WebStore\bin\Debug\net7.0\k6\package.json
 C:\Users\Admin\Desktop\backend\WebApplication\WebStore\bin\Debug\net7.0\AspNetCoreRateLimit.dll
 C:\Users\Admin\Desktop\backend\WebApplication\WebStore\bin\Debug\net7.0\Newtonsoft.Json.dll
+C:\Users\Admin\Desktop\backend\WebApplication\WebStore\bin\Debug\net7.0\SolrNet.dll
+C:\Users\Admin\Desktop\backend\WebApplication\WebStore\bin\Debug\net7.0\Microsoft.DependencyInjection.SolrNet.dll
