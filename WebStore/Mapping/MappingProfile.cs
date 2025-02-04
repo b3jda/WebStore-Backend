@@ -6,13 +6,14 @@ namespace WebStore.Mapping
 {
     public class MappingProfile : Profile
     {
-        public MappingProfile() {
+        public MappingProfile()
+        {
 
             CreateMap<ProductStockDTO, Product>();
-            CreateMap<Product , ProductStockDTO> ();
+            CreateMap<Product, ProductStockDTO>();
 
             CreateMap<ReportDTO, Report>();
-            CreateMap<Report , ReportDTO> ();
+            CreateMap<Report, ReportDTO>();
 
             CreateMap<ProductRequestDTO, Product>();
             CreateMap<Product, ProductRequestDTO>();

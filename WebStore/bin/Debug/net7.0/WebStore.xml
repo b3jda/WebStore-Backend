@@ -555,21 +555,6 @@
             <response code="404">Size not found.</response>
             <response code="500">Internal server error.</response>
         </member>
-        <member name="M:WebStore.Controllers.SolrProductController.SearchProducts(System.String,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Double},System.Nullable{System.Double},System.String,System.Boolean)">
-            <summary>
-            Searches for products in Solr.
-            </summary>
-        </member>
-        <member name="M:WebStore.Controllers.SolrProductController.DeleteProduct(System.Int32)">
-            <summary>
-            Deletes a product from Solr.
-            </summary>
-        </member>
-        <member name="M:WebStore.Controllers.SolrProductController.IndexProduct(WebStore.Models.Product)">
-            <summary>
-            Adds or updates a product in Solr.
-            </summary>
-        </member>
         <member name="T:WebStore.Controllers.UserController">
             <summary>
             Manages user-related operations in the WebStore API.
@@ -781,21 +766,6 @@
         <member name="M:WebStore.Migrations.AddOriginalPriceToProduct.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
             <inheritdoc />
         </member>
-        <member name="M:WebStore.Services.Implementations.SolrProductService.AddOrUpdateProduct(WebStore.Models.Product)">
-            <summary>
-            Adds or updates a product in Solr.
-            </summary>
-        </member>
-        <member name="M:WebStore.Services.Implementations.SolrProductService.DeleteProduct(System.Int32)">
-            <summary>
-            Deletes a product from Solr.
-            </summary>
-        </member>
-        <member name="M:WebStore.Services.Implementations.SolrProductService.SearchProducts(System.String,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Double},System.Nullable{System.Double},System.String,System.Boolean)">
-            <summary>
-            Searches for products in Solr using filters.
-            </summary>
-        </member>
         <member name="M:WebStore.Services.Utilities.LinkHelper.GenerateOrderLinks(System.Int32)">
             <summary>
             Generates links for an order
@@ -809,6 +779,36 @@
         <member name="M:WebStore.Services.Utilities.LinkHelper.GenerateProductCollectionLinks">
             <summary>
             Generates collection-level links for the product API
+            </summary>
+        </member>
+        <member name="M:SolrProductController.IndexProducts">
+            <summary>
+            Index all products from the database to Solr.
+            </summary>
+        </member>
+        <member name="M:SolrProductController.ClearIndex">
+            <summary>
+            Clear all indexed products in Solr.
+            </summary>
+        </member>
+        <member name="M:SolrProductController.SearchProducts(System.String,System.Nullable{System.Decimal},System.Nullable{System.Decimal},System.Int32,System.Int32)">
+            <summary>
+            Search for products in Solr with optional min/max price filters.
+            </summary>
+        </member>
+        <member name="M:SolrProductService.IndexProductsAsync(System.Collections.Generic.List{WebStore.Models.Product})">
+            <summary>
+            Indexes a list of products in Solr.
+            </summary>
+        </member>
+        <member name="M:SolrProductService.ClearSolrIndex">
+            <summary>
+            Deletes all products from Solr.
+            </summary>
+        </member>
+        <member name="M:SolrProductService.SearchProductsAsync(System.String,System.Nullable{System.Decimal},System.Nullable{System.Decimal},System.Int32,System.Int32)">
+            <summary>
+            Searches for products in Solr with optional min/max price filters.
             </summary>
         </member>
     </members>
