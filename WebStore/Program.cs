@@ -40,7 +40,7 @@ builder.Services.AddApiVersioning(options =>
 });
 
 
-builder.Services.AddSolrNet<Product>("http://localhost:8983/solr/webstore_products");
+builder.Services.AddSolrNet<Product>("http://solr-webstore:8983/solr/webstore_products");
 builder.Services.AddScoped<SolrProductService>();
 
 builder.Services.AddEndpointsApiExplorer();
