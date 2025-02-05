@@ -43,14 +43,14 @@ function resilientRequest(url, maxRetries = 5) {
 
 // Main Test Function
 export default function () {
-    let productsRes = resilientRequest('http://localhost:5205/api/v1/product');
+    let productsRes = resilientRequest('http://localhost:5300/api/v1/product'); // Updated Port
     productRequestDuration.add(productsRes.timings.duration);
     check(productsRes, {
         'All Products - status 200': (r) => r.status === 200,
         'All Products - response < 2000ms': (r) => r.timings.duration < 2000,
     });
 
-    let ordersRes = resilientRequest('http://localhost:5205/api/v1/order');
+    let ordersRes = resilientRequest('http://localhost:5300/api/v1/order'); // Updated Port
     orderRequestDuration.add(ordersRes.timings.duration);
     check(ordersRes, {
         'All Orders - status 200': (r) => r.status === 200,
